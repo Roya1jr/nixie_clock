@@ -15,7 +15,7 @@ enum _Element {
 }
 
 final _lightTheme = {
-  _Element.background: Color(0xFF81B3FE),
+  _Element.background: Colors.black,
   _Element.text: Colors.white,
   _Element.shadow: Colors.black,
 };
@@ -26,9 +26,6 @@ final _darkTheme = {
   _Element.shadow: Color(0xFF174EA6),
 };
 
-/// A basic digital clock.
-///
-/// You can do better than this!
 class DigitalClock extends StatefulWidget {
   const DigitalClock(this.model);
 
@@ -68,28 +65,16 @@ class _DigitalClockState extends State<DigitalClock> {
   }
 
   void _updateModel() {
-    setState(() {
-      // Cause the clock to rebuild when the model changes.
-    });
+    setState(() {});
   }
 
   void _updateTime() {
     setState(() {
       _dateTime = DateTime.now();
-      // Update once per minute. If you want to update every second, use the
-      // following code.
       _timer = Timer(
-        Duration(minutes: 1) -
-            Duration(seconds: _dateTime.second) -
-            Duration(milliseconds: _dateTime.millisecond),
+        Duration(seconds: 1) - Duration(milliseconds: _dateTime.millisecond),
         _updateTime,
       );
-      // Update once per second, but make sure to do it at the beginning of each
-      // new second, so that the clock is accurate.
-      // _timer = Timer(
-      //   Duration(seconds: 1) - Duration(milliseconds: _dateTime.millisecond),
-      //   _updateTime,
-      // );
     });
   }
 
@@ -101,32 +86,59 @@ class _DigitalClockState extends State<DigitalClock> {
     final hour =
         DateFormat(widget.model.is24HourFormat ? 'HH' : 'hh').format(_dateTime);
     final minute = DateFormat('mm').format(_dateTime);
-    final fontSize = MediaQuery.of(context).size.width / 3.5;
-    final offset = -fontSize / 7;
-    final defaultStyle = TextStyle(
-      color: colors[_Element.text],
-      fontFamily: 'PressStart2P',
-      fontSize: fontSize,
-      shadows: [
-        Shadow(
-          blurRadius: 0,
-          color: colors[_Element.shadow],
-          offset: Offset(10, 0),
-        ),
-      ],
-    );
+    final second = DateFormat('ss').format(_dateTime);
+    final firstHourDigit = hour.toString().substring(0, 1);
+    final secondHourDigit = hour.toString().substring(1, 2);
+    final firstMinuteDigit = minute.toString().substring(0, 1);
+    final secondMinuteDigit = minute.toString().substring(1, 2);
+    final firstSecondDigit = second.toString().substring(0, 1);
+    final secondSecondDigit = second.toString().substring(1, 2);
 
     return Container(
       color: colors[_Element.background],
       child: Center(
-        child: DefaultTextStyle(
-          style: defaultStyle,
-          child: Stack(
-            children: <Widget>[
-              Positioned(left: offset, top: 0, child: Text(hour)),
-              Positioned(right: offset, bottom: offset, child: Text(minute)),
-            ],
-          ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Image.asset(
+                          'assets/images_dark/dark_$firstHourDigit.jpg')),
+                  Expanded(
+                      child: Image.asset(
+                          'assets/images_dark/dark_$secondHourDigit.jpg')),
+                ],
+              ),
+              flex: 5,
+            ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Image.asset(
+                          'assets/images_dark/dark_$firstSecondDigit.jpg')),
+                  Expanded(
+                      child: Image.asset(
+                          'assets/images_dark/dark_$secondSecondDigit.jpg')),
+                ],
+              ),
+              flex: 1,
+            ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Image.asset(
+                          'assets/images_dark/dark_$firstMinuteDigit.jpg')),
+                  Expanded(
+                      child: Image.asset(
+                          'assets/images_dark/dark_$secondMinuteDigit.jpg')),
+                ],
+              ),
+              flex: 5,
+            ),
+          ],
         ),
       ),
     );
