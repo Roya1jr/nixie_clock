@@ -1,15 +1,5 @@
-# Flutter Clock
+# Nixie Clock
 
-Welcome to Flutter Clock!
+A simple flutter app that displays a clock using Nixie tube images
 
-See [flutter.dev/clock](https://flutter.dev/clock) for how to get started, submission requirements, contest rules, and FAQs.
-
-See a [live demo](https://maryx.github.io/flutter_clock) with Flutter for Web!
-
-Example [Analog Clock](analog_clock)
-
-<img src='analog_clock/analog.gif' width='350'>
-
-Example [Digital Clock](digital_clock)
-
-<img src='digital_clock/digital.gif' width='350'>
+Images by [olafpictures](https://pixabay.com/users/olafpictures-2427999/) on https://pixabay.com/
