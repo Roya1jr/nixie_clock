@@ -104,10 +104,10 @@ class _DigitalClockState extends State<DigitalClock> {
                 children: <Widget>[
                   Expanded(
                       child: Image.asset(
-                          'assets/images_dark/dark_$firstHourDigit.jpg')),
+                          'assets/images/dark_$firstHourDigit.jpg')),
                   Expanded(
                       child: Image.asset(
-                          'assets/images_dark/dark_$secondHourDigit.jpg')),
+                          'assets/images/dark_$secondHourDigit.jpg')),
                 ],
               ),
               flex: 5,
@@ -117,10 +117,10 @@ class _DigitalClockState extends State<DigitalClock> {
                 children: <Widget>[
                   Expanded(
                       child: Image.asset(
-                          'assets/images_dark/dark_$firstSecondDigit.jpg')),
+                          'assets/images/dark_$firstSecondDigit.jpg')),
                   Expanded(
                       child: Image.asset(
-                          'assets/images_dark/dark_$secondSecondDigit.jpg')),
+                          'assets/images/dark_$secondSecondDigit.jpg')),
                 ],
               ),
               flex: 1,
@@ -130,10 +130,10 @@ class _DigitalClockState extends State<DigitalClock> {
                 children: <Widget>[
                   Expanded(
                       child: Image.asset(
-                          'assets/images_dark/dark_$firstMinuteDigit.jpg')),
+                          'assets/images/dark_$firstMinuteDigit.jpg')),
                   Expanded(
                       child: Image.asset(
-                          'assets/images_dark/dark_$secondMinuteDigit.jpg')),
+                          'assets/images/dark_$secondMinuteDigit.jpg')),
                 ],
               ),
               flex: 5,
