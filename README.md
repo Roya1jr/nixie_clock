@@ -6,7 +6,9 @@ Images by [olafpictures](https://pixabay.com/users/olafpictures-2427999/) on htt
 
 # To run
 
-Clone this repo and run `cd digital_clock` and `flutter run`
+Clone this repo and run `cd digital_clock`
+Then `flutter create .` to generate android and ios builds
+and `flutter run` to run on emulator
 
 # Certificate
 
