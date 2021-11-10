@@ -4,8 +4,9 @@
 
 import 'dart:async';
 
-import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_clock_helper/model.dart';
 import 'package:intl/intl.dart';
 
 enum _Element {
@@ -17,7 +18,7 @@ enum _Element {
 final _lightTheme = {
   _Element.background: Colors.black,
   _Element.text: Colors.white,
-  _Element.shadow: Colors.black,
+  _Element.shadow: Color(0xFF174EA6),
 };
 
 final _darkTheme = {
@@ -80,6 +81,8 @@ class _DigitalClockState extends State<DigitalClock> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     final colors = Theme.of(context).brightness == Brightness.light
         ? _lightTheme
         : _darkTheme;
