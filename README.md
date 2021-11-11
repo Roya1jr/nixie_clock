@@ -9,7 +9,7 @@ Images of nixie tubes by [olafpictures](https://pixabay.com/users/olafpictures-2
 # To run
 
 Clone this repo and run `cd digital_clock`
-Then `flutter create .` to generate android and ios builds
+Then `flutter create .` to generate android , ios and web builds
 and `flutter run` to run on emulator
 
 # Certificate
